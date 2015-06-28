@@ -13,4 +13,8 @@ public class Aplicacion {
      public static void main(String[] args) {
      System.out.println("Tecsup - Hola");
     }
+     
+     public static void mensaje() {
+         System.out.println("Este es un cambio");
+    }
 }
