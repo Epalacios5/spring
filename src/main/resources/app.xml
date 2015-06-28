@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+">
+    <!--dos-->
+    <bean id="musico" class="com.tecsup.spring.model.Musico"/>
+    
+    <!--tres-->
+    <bean id="bob" class="com.tecsup.spring.model.Musico">
+        <constructor-arg value="5"/>
+    </bean>
+    
+    <!--cuatro-->
+    <bean id="instrumento" class="com.tecsup.spring.model.Instrumento"/>
+    
+    <bean id="musicofelix" class="com.tecsup.spring.model.Musico">
+        <constructor-arg value="12"/>
+        <constructor-arg ref="instrumento"/>
+    </bean>
+    
+    <!--cinco-->
+    <bean id="musicochuck" class="com.tecsup.spring.model.Musico">
+        <property name="canciones" value="15" />    <!-- parecido a 3-->
+    </bean>
+    
+    <!--6-->
+    <bean id="donal" class="com.tecsup.spring.model.Musico">
+        <property name="instrumento" ref="instrumento" />
+        <property name="canciones" value="19" /> <!--se añadio-->
+        <property name="nombre" value="Donald" /> <!--se añadio-->
+    </bean>
+    
+    <!--7-->
+    <bean id="kurt" class="com.tecsup.spring.model.Musico">
+        <property name="instrumento">
+            <bean class="com.tecsup.spring.model.Instrumento"/>     <!--puede ser Guitarra-->
+        </property>
+    </bean>
+    
+    <!--8-->
+    <bean id="guitarra" class="com.tecsup.spring.model.Guitarra"/>
+    <bean id="piano" class="com.tecsup.spring.model.Piano"/>
+    <bean id="musico" class="com.tecsup.spring.model.Musico">
+        <property name="instrumentos">
+            <list>
+                <ref bean="guitarra"/>
+                <ref bean="piano"/>
+            </list>
+        </property>
+    </bean>
+    
+</beans>
